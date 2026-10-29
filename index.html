@@ -1,0 +1,623 @@
+<!doctype html>
+<html lang="fr" data-lang="fr">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Paul Barthe – ePortfolio</title>
+<meta name="description" content="ePortfolio de Paul Barthe, élève ingénieur en sciences du numérique à l'ENSEEIHT (Toulouse INP).">
+<!-- Retirer la ligne suivante le jour où tu veux que Google référence ton portfolio -->
+<meta name="robots" content="noindex, nofollow">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Barlow:ital,wght@0,400;0,500;0,600;1,400&family=Barlow+Condensed:wght@500;600;700;800&display=swap" rel="stylesheet">
+<style>
+:root{
+  --track:#1E3F8F; --track-deep:#132A63; --lane:#FFFFFF; --bib:#F5C518;
+  --ink:#151B2B; --paper:#F4F6FA; --card:#FFFFFF; --muted:#5B6478; --rule:#D6DCE8;
+  --display:"Barlow Condensed",system-ui,sans-serif; --body:"Barlow",system-ui,sans-serif;
+}
+@media (prefers-color-scheme: dark){
+  :root{ --ink:#E8ECF5; --paper:#0F1626; --card:#172036; --muted:#A3ADC2; --rule:#2A3552; --track:#24489E; --track-deep:#0C1A40; }
+}
+*{box-sizing:border-box}
+html{scroll-behavior:smooth}
+body{margin:0;background:var(--paper);color:var(--ink);font:400 1.0625rem/1.6 var(--body);-webkit-font-smoothing:antialiased}
+html[data-lang="fr"] [lang="en"]:not(html), html[data-lang="en"] [lang="fr"]:not(html){display:none!important}
+a{color:inherit;text-decoration-thickness:1px;text-underline-offset:3px}
+a:hover{text-decoration-color:var(--bib)}
+:focus-visible{outline:3px solid var(--bib);outline-offset:2px;border-radius:4px}
+h1,h2,h3{font-family:var(--display);line-height:1.05;margin:0}
+h2{font-size:clamp(2rem,5vw,2.75rem);font-weight:700;letter-spacing:-.01em}
+h3{font-size:1.5rem;font-weight:600}
+p{margin:0 0 1em}
+.wrap{max-width:68rem;margin:0 auto;padding:0 16px}
+.measure{max-width:44rem}
+
+/* Header + onglets : des couloirs de piste */
+header{background:var(--track);color:var(--lane);position:sticky;top:0;z-index:10}
+.top{display:flex;align-items:center;justify-content:space-between;gap:1rem;padding:.75rem 0}
+.brand{font-family:var(--display);font-weight:700;font-size:1.35rem;letter-spacing:.01em;text-decoration:none}
+.lang{display:flex;border:1.5px solid rgba(255,255,255,.5);border-radius:999px;overflow:hidden}
+.lang button{all:unset;cursor:pointer;padding:.2rem .7rem;font:600 .85rem var(--body)}
+.lang button[aria-pressed="true"]{background:var(--bib);color:var(--ink)}
+nav[role="tablist"]{display:flex;overflow-x:auto;scrollbar-width:none;border-top:1px solid rgba(255,255,255,.25)}
+nav[role="tablist"]::-webkit-scrollbar{display:none}
+.tab{all:unset;cursor:pointer;white-space:nowrap;padding:.7rem 1rem;font:600 1.05rem var(--display);letter-spacing:.02em;border-left:2px solid rgba(255,255,255,.35);color:rgba(255,255,255,.8)}
+.tab:last-child{border-right:2px solid rgba(255,255,255,.35)}
+.tab[aria-selected="true"]{color:var(--ink);background:var(--bib)}
+.tab:focus-visible{outline:3px solid var(--lane);outline-offset:-3px}
+
+main{padding:2.5rem 0 4rem}
+[role="tabpanel"][hidden]{display:none}
+.panel-head{margin-bottom:2rem}
+.panel-head p{color:var(--muted);margin-top:.6rem;font-size:1.125rem}
+
+/* Hero : le dossard */
+.hero{display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1.15fr);gap:3rem;align-items:center;margin-bottom:3.5rem}
+.bib{background:#fff;color:#151B2B;border-radius:10px;padding:1.4rem 1.6rem 1.2rem;position:relative;box-shadow:0 18px 40px -18px rgba(19,42,99,.55);transform:rotate(-2deg);border-top:14px solid var(--track)}
+.bib::before,.bib::after,.bib .pin-b::before,.bib .pin-b::after{content:"";position:absolute;width:12px;height:12px;border-radius:50%;background:var(--paper);box-shadow:inset 0 1px 2px rgba(0,0,0,.35)}
+.bib::before{top:10px;left:12px}.bib::after{top:10px;right:12px}
+.bib .pin-b::before{bottom:10px;left:12px}.bib .pin-b::after{bottom:10px;right:12px}
+.bib-race{display:flex;justify-content:space-between;font:600 .9rem var(--display);color:#5B6478;padding:0 1rem}
+.bib-num{font:800 clamp(5rem,14vw,8.5rem)/.9 var(--display);letter-spacing:-.03em;text-align:center;margin:.4rem 0 .2rem}
+.bib-name{font:700 1.9rem var(--display);text-align:center;text-transform:uppercase;letter-spacing:.06em;background:var(--bib);border-radius:4px;padding:.15rem .5rem}
+.bib-sub{text-align:center;font-size:.95rem;color:#5B6478;margin-top:.6rem}
+.hero h1{font-size:clamp(2.3rem,5.2vw,3.6rem);font-weight:700;margin-bottom:1.1rem}
+.hero .lede{font-size:1.15rem}
+.photo{width:96px;height:96px;border-radius:50%;background:var(--track);color:#fff;display:grid;place-items:center;font:700 2rem var(--display);margin-bottom:1.2rem;overflow:hidden}
+.photo img{width:100%;height:100%;object-fit:cover}
+.actions{display:flex;flex-wrap:wrap;gap:.6rem;margin-top:1.4rem}
+.btn{display:inline-block;padding:.65rem 1.1rem;border-radius:6px;font:600 1.05rem var(--display);letter-spacing:.02em;text-decoration:none;border:2px solid var(--track);color:var(--track);background:transparent;cursor:pointer}
+@media (prefers-color-scheme: dark){.btn{color:var(--ink);border-color:var(--rule)}}
+.btn.primary{background:var(--track);color:#fff;border-color:var(--track)}
+.status{display:inline-block;margin-top:1rem;font-size:.95rem;color:var(--muted)}
+.status b{color:var(--ink)}
+
+/* Temps de passage */
+.splits{border-top:3px solid var(--ink);display:grid;grid-template-columns:repeat(4,1fr)}
+.split{padding:1rem 1rem 1rem 0;border-bottom:1px solid var(--rule)}
+.split strong{display:block;font:700 1.8rem var(--display)}
+.split span{color:var(--muted);font-size:.95rem}
+
+/* Sous-onglets */
+.subtabs{display:flex;flex-wrap:wrap;gap:.4rem;margin-bottom:2rem}
+.subtab{all:unset;cursor:pointer;padding:.4rem .9rem;border-radius:999px;border:1.5px solid var(--rule);font:600 1rem var(--display);letter-spacing:.02em}
+.subtab[aria-selected="true"]{background:var(--ink);color:var(--paper);border-color:var(--ink)}
+
+/* Frise */
+.timeline{list-style:none;margin:0;padding:0;border-left:3px solid var(--track);margin-left:.4rem}
+.timeline li{position:relative;padding:0 0 2rem 1.6rem}
+.timeline li::before{content:"";position:absolute;left:-9px;top:.35rem;width:15px;height:15px;border-radius:50%;background:var(--bib);border:3px solid var(--track)}
+.when{font:600 1rem var(--display);color:var(--muted)}
+.timeline h3{margin:.1rem 0 .5rem}
+
+/* Fiches projet */
+.project{background:var(--card);border-left:6px solid var(--track);border-radius:0 8px 8px 0;padding:1.6rem 1.6rem 1.2rem;margin-bottom:1.6rem}
+.project.idea{border-left-color:var(--bib)}
+.project.pivot{border-left-color:var(--muted)}
+.project header{all:unset;display:block;margin-bottom:1rem}
+.tagline{color:var(--muted);margin-top:.3rem}
+.facts{display:grid;grid-template-columns:9rem 1fr;gap:.55rem 1.2rem;margin:0}
+.facts dt{font:600 1.05rem var(--display);color:var(--track)}
+@media (prefers-color-scheme: dark){.facts dt{color:var(--bib)}}
+.facts dd{margin:0}
+.state{display:inline-block;font:600 .9rem var(--display);padding:.1rem .55rem;border-radius:4px;background:var(--paper);border:1px solid var(--rule);margin-top:.5rem}
+.todo{border:2px dashed var(--rule);border-radius:8px;padding:1.2rem;color:var(--muted);margin:1rem 0}
+
+/* Colonnes simples */
+.cols{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:2.5rem}
+.block{margin-bottom:2.5rem}
+.block h3{margin-bottom:.7rem;padding-bottom:.4rem;border-bottom:2px solid var(--ink)}
+.list{list-style:none;padding:0;margin:0}
+.list li{padding:.6rem 0;border-bottom:1px solid var(--rule)}
+.list li b{font-weight:600}
+.meter{display:flex;justify-content:space-between;gap:1rem}
+.meter span:last-child{color:var(--muted);text-align:right}
+.quote{font:500 1.35rem/1.35 var(--display);border-left:4px solid var(--bib);padding-left:1rem;margin:1.5rem 0}
+
+footer{border-top:1px solid var(--rule);padding:2rem 0;color:var(--muted);font-size:.95rem}
+footer .wrap{display:flex;flex-wrap:wrap;justify-content:space-between;gap:1rem}
+
+@media (max-width:820px){
+  .hero{grid-template-columns:1fr;gap:2.2rem}
+  .bib{max-width:26rem;margin:0 auto}
+  .splits{grid-template-columns:repeat(2,1fr)}
+  .cols{grid-template-columns:1fr;gap:0}
+  .facts{grid-template-columns:1fr;gap:.1rem}
+  .facts dd{margin-bottom:.7rem}
+}
+@media (prefers-reduced-motion: reduce){html{scroll-behavior:auto}}
+</style>
+</head>
+<body>
+
+<header>
+  <div class="wrap top">
+    <a class="brand" href="#welcome">Paul Barthe</a>
+    <div class="lang" role="group" aria-label="Langue / Language">
+      <button type="button" data-set-lang="fr" aria-pressed="true">FR</button>
+      <button type="button" data-set-lang="en" aria-pressed="false">EN</button>
+    </div>
+  </div>
+  <div class="wrap">
+    <nav role="tablist" aria-label="Sections">
+      <button class="tab" role="tab" id="t-welcome" aria-controls="welcome"><span lang="fr">Accueil</span><span lang="en">Welcome</span></button>
+      <button class="tab" role="tab" id="t-engineering" aria-controls="engineering"><span lang="fr">Parcours ingénieur</span><span lang="en">Engineering course</span></button>
+      <button class="tab" role="tab" id="t-mobility" aria-controls="mobility"><span lang="fr">Mobilité internationale</span><span lang="en">International mobility</span></button>
+      <button class="tab" role="tab" id="t-civic" aria-controls="civic"><span lang="fr">Engagement citoyen</span><span lang="en">Sustainability &amp; civic engagement</span></button>
+      <button class="tab" role="tab" id="t-sport" aria-controls="sport"><span lang="fr">Sport et activités</span><span lang="en">Sport &amp; activities</span></button>
+      <button class="tab" role="tab" id="t-career" aria-controls="career"><span lang="fr">Projet professionnel</span><span lang="en">Career development</span></button>
+    </nav>
+  </div>
+</header>
+
+<main class="wrap">
+
+<!-- ============ ACCUEIL ============ -->
+<section id="welcome" role="tabpanel" aria-labelledby="t-welcome">
+  <div class="hero">
+    <div class="bib" aria-hidden="true">
+      <div class="pin-b"></div>
+      <div class="bib-race"><span>ENSEEIHT</span><span>Toulouse INP</span></div>
+      <div class="bib-num">2029</div>
+      <div class="bib-name">Paul Barthe</div>
+      <div class="bib-sub"><span lang="fr">Sciences du Numérique</span><span lang="en">Digital Sciences</span></div>
+    </div>
+    <div>
+      <!-- Remplacer "PB" par : <img src="photo.jpg" alt="Paul Barthe"> -->
+      <div class="photo">PB</div>
+      <h1 lang="fr">La rigueur d'un ingénieur, l'instinct d'un entrepreneur, l'endurance d'un coureur.</h1>
+      <h1 lang="en">An engineer's rigour, an entrepreneur's instinct, a runner's endurance.</h1>
+      <p class="lede" lang="fr">Je suis élève ingénieur en première année à l'ENSEEIHT, dans le département Sciences du Numérique. Ce qui m'attire, c'est le moment où une technologie rencontre un vrai besoin : je développe une application, je monte un traceur connecté avec deux camarades de l'école, et je teste une idée de marque fabriquée en Europe.</p>
+      <p class="lede" lang="en">I am a first-year engineering student at ENSEEIHT, in the Digital Sciences department. What drives me is the moment a technology meets a real need: I am building an app, developing a connected tracker with two fellow students, and testing an idea for a brand made in Europe.</p>
+      <p lang="fr">Mon cap : l'entrepreneuriat, la finance quantitative et l'intelligence artificielle. Idéalement, les trois à la fois.</p>
+      <p lang="en">My direction: entrepreneurship, quantitative finance and artificial intelligence. Ideally all three at once.</p>
+      <span class="status" lang="fr"><b>Je recherche</b> un stage de première année pour l'été 2027.</span>
+      <span class="status" lang="en"><b>Looking for</b> a first-year internship for summer 2027.</span>
+      <div class="actions">
+        <button class="btn primary" type="button" data-go="career" data-sub="cv"><span lang="fr">Voir mon CV</span><span lang="en">See my CV</span></button>
+        <button class="btn" type="button" data-go="career" data-sub="video"><span lang="fr">Ma vidéo de présentation</span><span lang="en">My pitch video</span></button>
+        <a class="btn js-linkedin" href="#" target="_blank" rel="noopener">LinkedIn</a>
+        <a class="btn js-mail" href="#">Email</a>
+      </div>
+    </div>
+  </div>
+
+  <div class="splits">
+    <div class="split"><strong>3</strong><span lang="fr">projets entrepreneuriaux en cours</span><span lang="en">entrepreneurial projects underway</span></div>
+    <div class="split"><strong>30 km</strong><span lang="fr">de course à pied chaque semaine</span><span lang="en">of running every week</span></div>
+    <div class="split"><strong>8 ans</strong><span lang="fr">de judo, puis la boxe</span><span lang="en">of judo, then boxing</span></div>
+    <div class="split"><strong>10</strong><span lang="fr">pays visités</span><span lang="en">countries visited</span></div>
+  </div>
+</section>
+
+<!-- ============ PARCOURS INGÉNIEUR ============ -->
+<section id="engineering" role="tabpanel" aria-labelledby="t-engineering" hidden>
+  <div class="panel-head measure">
+    <h2 lang="fr">Parcours ingénieur</h2><h2 lang="en">Engineering course</h2>
+    <p lang="fr">D'où je viens, ce que je construis et ce que je sais faire.</p>
+    <p lang="en">Where I come from, what I build and what I can do.</p>
+  </div>
+
+  <div class="subtabs" role="tablist" aria-label="Parcours">
+    <button class="subtab" role="tab" data-sub="path"><span lang="fr">Formation</span><span lang="en">Education</span></button>
+    <button class="subtab" role="tab" data-sub="projects"><span lang="fr">Projets</span><span lang="en">Projects</span></button>
+    <button class="subtab" role="tab" data-sub="skills"><span lang="fr">Compétences</span><span lang="en">Skills</span></button>
+  </div>
+
+  <div data-subpanel="path" class="measure">
+    <ol class="timeline">
+      <li>
+        <div class="when"><span lang="fr">Depuis septembre 2026</span><span lang="en">Since September 2026</span></div>
+        <h3>ENSEEIHT, Toulouse INP</h3>
+        <p lang="fr">Cycle ingénieur, département Sciences du Numérique. Premiers cours : programmation impérative en Ada, logique et spécification, algorithmique. Je complète en apprenant le C et l'environnement Linux en autodidacte.</p>
+        <p lang="en">Engineering degree, Digital Sciences department. First courses: imperative programming in Ada, logic and formal specification, algorithms. On my own, I am also learning C and the Linux environment.</p>
+        <p lang="fr"><b>Pourquoi l'N7 ?</b> Une école fondée en 1907, reconnue en informatique, en électronique et en mécanique des fluides, avec un réseau d'alumni solide et une vie associative qui permet de lancer des projets. Et le numérique, parce qu'avec l'essor de l'IA, il faudra des ingénieurs qui comprennent vraiment comment elle fonctionne, et pourquoi elle échoue parfois.</p>
+        <p lang="en"><b>Why N7?</b> A school founded in 1907, recognised in computer science, electronics and fluid mechanics, with a strong alumni network and a student life that makes it possible to launch projects. And digital sciences because, as AI spreads, we will need engineers who truly understand how it works, and why it sometimes fails.</p>
+      </li>
+      <li>
+        <div class="when">2024 – 2026</div>
+        <h3 lang="fr">Classe préparatoire PSI, lycée Gustave Eiffel, Bordeaux</h3>
+        <h3 lang="en">PSI preparatory class, Lycée Gustave Eiffel, Bordeaux</h3>
+        <p lang="fr">Deux ans de mathématiques, physique et sciences de l'ingénieur à haute intensité. En première année, j'ai voulu passer du top 10 au top 3 de ma classe en travaillant toujours plus, jusqu'à l'épuisement. J'ai craqué en fin d'année. J'en ai tiré une leçon durable : la performance tient au rythme et aux priorités, pas au nombre d'heures. En deuxième année, j'ai été parmi les premiers de ma classe toute l'année.</p>
+        <p lang="en">Two years of intensive mathematics, physics and engineering science. In my first year, I tried to move from the top 10 to the top 3 of my class by working ever harder, until I burned out at the end of the year. I learned a lasting lesson: performance comes from rhythm and priorities, not from the number of hours. In my second year, I ranked among the top students of my class all year long.</p>
+        <p lang="fr"><b>TIPE :</b> détection des nids de chenilles processionnaires à la cime des pins par traitement d'image, en Python. Une porte d'entrée vers la vision par ordinateur : la suite logique serait de générer des images d'entraînement et d'entraîner des modèles plus robustes.</p>
+        <p lang="en"><b>Research project (TIPE):</b> detecting processionary caterpillar nests at the top of pine trees using image processing, in Python. A gateway to computer vision: the natural next step would be to generate training images and train more robust models.</p>
+      </li>
+      <li>
+        <div class="when">2024</div>
+        <h3 lang="fr">Baccalauréat, mention Bien, lycée Magendie, Bordeaux</h3>
+        <h3 lang="en">French Baccalaureate with honours, Lycée Magendie, Bordeaux</h3>
+        <p lang="fr">Après un collège à Paris.</p>
+        <p lang="en">After middle school in Paris.</p>
+      </li>
+    </ol>
+  </div>
+
+  <div data-subpanel="projects">
+    <article class="project">
+      <header>
+        <h3>Rassasié</h3>
+        <p class="tagline" lang="fr">Une application qui donne envie de goûter autre chose.</p>
+        <p class="tagline" lang="en">An app that makes you want to taste something new.</p>
+        <span class="state" lang="fr">En développement, projet personnel</span><span class="state" lang="en">In development, personal project</span>
+      </header>
+      <dl class="facts">
+        <dt lang="fr">Le problème</dt><dt lang="en">The problem</dt>
+        <dd lang="fr">On cuisine souvent les mêmes plats, et beaucoup de recettes de terroir sont en train d'être oubliées.</dd>
+        <dd lang="en">We tend to cook the same dishes, and many traditional regional recipes are being forgotten.</dd>
+        <dt lang="fr">Mon rôle</dt><dt lang="en">My role</dt>
+        <dd lang="fr">Seul sur le projet : conception du produit, choix des fonctionnalités, développement en Java assisté par IA, tests.</dd>
+        <dd lang="en">Solo project: product design, feature choices, AI-assisted development in Java, testing.</dd>
+        <dt lang="fr">Ce que fait l'appli</dt><dt lang="en">What it does</dt>
+        <dd lang="fr">Elle propose des plats variés adaptés à chaque utilisateur et met en avant des plats d'autres régions, notamment des plats de terroir.</dd>
+        <dd lang="en">It suggests varied dishes tailored to each user and highlights dishes from other regions, especially traditional ones.</dd>
+        <dt lang="fr">Où j'en suis</dt><dt lang="en">Status</dt>
+        <dd lang="fr">Environ 40 heures de travail. La plupart des fonctionnalités sont opérationnelles.</dd>
+        <dd lang="en">About 40 hours of work. Most features are up and running.</dd>
+        <dt lang="fr">Ce que j'apprends</dt><dt lang="en">What I'm learning</dt>
+        <dd lang="fr">Piloter un développement avec une IA demande un cahier des charges précis et des tests rigoureux : le code ne vaut que par la clarté de ce qu'on demande.</dd>
+        <dd lang="en">Steering development with an AI takes precise specifications and rigorous testing: the code is only as good as the clarity of the request.</dd>
+      </dl>
+      <div class="todo" lang="fr">Captures d'écran à venir.</div>
+      <div class="todo" lang="en">Screenshots coming soon.</div>
+    </article>
+
+    <article class="project">
+      <header>
+        <h3>Tago</h3>
+        <p class="tagline" lang="fr">Un traceur connecté qui vous prévient avant que vous n'oubliiez vos clés.</p>
+        <p class="tagline" lang="en">A smart tracker that warns you before you forget your keys.</p>
+        <span class="state" lang="fr">Étude de marché, en équipe de trois</span><span class="state" lang="en">Market research, team of three</span>
+      </header>
+      <dl class="facts">
+        <dt lang="fr">Le problème</dt><dt lang="en">The problem</dt>
+        <dd lang="fr">Les traceurs actuels aident à retrouver un objet perdu, mais ne l'empêchent pas d'être oublié.</dd>
+        <dd lang="en">Current trackers help you find a lost item, but they don't stop you from leaving it behind.</dd>
+        <dt lang="fr">L'idée</dt><dt lang="en">The idea</dt>
+        <dd lang="fr">Un traceur au design soigné, d'une précision visée au centimètre, qui alerte l'utilisateur dès que ses clés s'éloignent de plus de 50 cm de son téléphone au moment de sortir. Une application ajoute des rappels contextuels (les lunettes de soleil quand il fait chaud, par exemple). iPhone d'abord.</dd>
+        <dd lang="en">A well-designed tracker aiming for centimetre-level precision, which alerts users when their keys are more than 50 cm from their phone as they leave home. A companion app adds contextual reminders (sunglasses when it's hot, for instance). iPhone first.</dd>
+        <dt lang="fr">L'équipe</dt><dt lang="en">The team</dt>
+        <dd lang="fr">Trois élèves de l'N7 aux profils complémentaires : sciences du numérique (moi), mécanique des fluides et énergétique, électronique.</dd>
+        <dd lang="en">Three N7 students with complementary backgrounds: digital sciences (me), fluid mechanics, and electronics.</dd>
+        <dt lang="fr">Fait jusqu'ici</dt><dt lang="en">Done so far</dt>
+        <dd lang="fr">Analyse des concurrents et des technologies de localisation, premiers échanges avec de futurs utilisateurs.</dd>
+        <dd lang="en">Competitor and location-technology analysis, first conversations with potential users.</dd>
+        <dt lang="fr">Prochaine étape</dt><dt lang="en">Next step</dt>
+        <dd lang="fr">Interroger 100 personnes, avec un objectif d'au moins 50 retours positifs avant d'aller plus loin. Les entretiens suivent la méthode du livre The Mom Test : parler des habitudes réelles des gens, pas de notre idée.</dd>
+        <dd lang="en">Interview 100 people, aiming for at least 50 positive responses before going further. The interviews follow The Mom Test method: ask about people's real habits, not about our idea.</dd>
+      </dl>
+      <div class="todo" lang="fr">Premiers designs à venir.</div>
+      <div class="todo" lang="en">First designs coming soon.</div>
+    </article>
+
+    <article class="project idea">
+      <header>
+        <h3 lang="fr">Chaussettes de Pilates fabriquées en Europe</h3>
+        <h3 lang="en">Pilates grip socks made in Europe</h3>
+        <p class="tagline" lang="fr">Des chaussettes antidérapantes pour le Pilates reformer, durables et produites près de chez nous.</p>
+        <p class="tagline" lang="en">Non-slip socks for reformer Pilates, durable and produced close to home.</p>
+        <span class="state" lang="fr">Exploration</span><span class="state" lang="en">Exploration</span>
+      </header>
+      <dl class="facts">
+        <dt lang="fr">Le constat</dt><dt lang="en">The insight</dt>
+        <dd lang="fr">Le Pilates reformer est en plein essor, et ses pratiquants ont besoin de chaussettes antidérapantes. Le marché est dominé par des produits fabriqués loin de l'Europe.</dd>
+        <dd lang="en">Reformer Pilates is booming, and its practitioners need non-slip socks. The market is dominated by products made far from Europe.</dd>
+        <dt lang="fr">Fait jusqu'ici</dt><dt lang="en">Done so far</dt>
+        <dd lang="fr">Repérage d'usines textiles au Portugal et en Bulgarie. Premiers échanges avec une entrepreneure du textile qui travaille avec des industriels portugais.</dd>
+        <dd lang="en">Identified textile factories in Portugal and Bulgaria. First conversations with a textile entrepreneur who works with Portuguese manufacturers.</dd>
+        <dt lang="fr">Prochaine étape</dt><dt lang="en">Next step</dt>
+        <dd lang="fr">Rencontrer des studios de Pilates reformer à Toulouse pour valider le besoin.</dd>
+        <dd lang="en">Meet reformer Pilates studios in Toulouse to validate the need.</dd>
+      </dl>
+    </article>
+
+    <article class="project pivot">
+      <header>
+        <h3 lang="fr">Une idée abandonnée : la plateforme de stages</h3>
+        <h3 lang="en">An idea I dropped: an internship platform</h3>
+        <span class="state" lang="fr">Arrêté après analyse</span><span class="state" lang="en">Stopped after analysis</span>
+      </header>
+      <dl class="facts">
+        <dt lang="fr">L'idée</dt><dt lang="en">The idea</dt>
+        <dd lang="fr">Mettre en relation les étudiants ingénieurs toulousains avec des PME locales, moins visibles que les grands groupes mais prêtes à accueillir des stagiaires.</dd>
+        <dd lang="en">Connect engineering students in Toulouse with local SMEs, which are less visible than large corporations but open to hosting interns.</dd>
+        <dt lang="fr">Pourquoi j'ai arrêté</dt><dt lang="en">Why I stopped</dt>
+        <dd lang="fr">Un concurrent très bien implanté (JobTeaser), et surtout un frein côté entreprises : former un stagiaire coûte du temps et de l'argent, les aides ont diminué, et rien ne garantit une embauche ensuite.</dd>
+        <dd lang="en">A well-established competitor (JobTeaser) and, above all, a barrier on the company side: training an intern costs time and money, financial support has decreased, and nothing guarantees a hire afterwards.</dd>
+        <dt lang="fr">Ce que j'en retiens</dt><dt lang="en">What I took away</dt>
+        <dd lang="fr">Vérifier le modèle économique avant d'écrire la moindre ligne de code. Je n'aime pas lâcher un projet, mais j'apprends à reconnaître le moment de pivoter.</dd>
+        <dd lang="en">Check the business model before writing a single line of code. I don't like giving up on a project, but I'm learning to recognise when it's time to pivot.</dd>
+      </dl>
+    </article>
+  </div>
+
+  <div data-subpanel="skills">
+    <div class="cols">
+      <div class="block">
+        <h3 lang="fr">Compétences techniques</h3><h3 lang="en">Technical skills</h3>
+        <ul class="list">
+          <li class="meter"><b>Python</b><span lang="fr">TIPE, projets personnels</span><span lang="en">Research project, personal projects</span></li>
+          <li class="meter"><b>Ada</b><span lang="fr">Cours à l'N7</span><span lang="en">N7 coursework</span></li>
+          <li class="meter"><b>C</b><span lang="fr">En apprentissage (France-IOI)</span><span lang="en">Learning (France-IOI)</span></li>
+          <li class="meter"><b>Java</b><span lang="fr">Notions, via Rassasié</span><span lang="en">Basics, through Rassasié</span></li>
+          <li class="meter"><b>Linux</b><span lang="fr">Débutant</span><span lang="en">Beginner</span></li>
+          <li class="meter"><b lang="fr">Développement assisté par IA</b><b lang="en">AI-assisted development</b><span lang="fr">Usage quotidien</span><span lang="en">Daily use</span></li>
+        </ul>
+      </div>
+      <div class="block">
+        <h3 lang="fr">Ce que les autres disent de moi</h3><h3 lang="en">What others say about me</h3>
+        <ul class="list">
+          <li lang="fr"><b>Tenace.</b> J'ai du mal à lâcher, ce qui fait aussi mon défaut : je peux être têtu.</li>
+          <li lang="en"><b>Tenacious.</b> I find it hard to let go, which is also my weakness: I can be stubborn.</li>
+          <li lang="fr"><b>Généreux.</b> C'est le mot qui revient le plus souvent chez mes amis.</li>
+          <li lang="en"><b>Generous.</b> The word my friends use most often.</li>
+          <li lang="fr"><b>À l'écoute.</b> Une forme d'intelligence émotionnelle, que je mets à profit avec l'association Safe Place.</li>
+          <li lang="en"><b>A good listener.</b> A form of emotional intelligence that I put to use with the Safe Place association.</li>
+          <li lang="fr"><b>Leader et joueur d'équipe.</b> Du terrain de foot à l'équipe de Tago.</li>
+          <li lang="en"><b>A leader and a team player.</b> From the football pitch to the Tago team.</li>
+        </ul>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============ MOBILITÉ INTERNATIONALE ============ -->
+<section id="mobility" role="tabpanel" aria-labelledby="t-mobility" hidden>
+  <div class="panel-head measure">
+    <h2 lang="fr">Mobilité internationale</h2><h2 lang="en">International mobility</h2>
+    <p lang="fr">Grâce à mes parents, j'ai beaucoup voyagé enfant. Aujourd'hui, je prépare ma propre expérience à l'étranger.</p>
+    <p lang="en">Thanks to my parents, I travelled a lot as a child. Now I am preparing my own experience abroad.</p>
+  </div>
+  <div class="cols">
+    <div class="block">
+      <h3 lang="fr">Langues</h3><h3 lang="en">Languages</h3>
+      <ul class="list">
+        <li class="meter"><b lang="fr">Français</b><b lang="en">French</b><span lang="fr">Langue maternelle</span><span lang="en">Native</span></li>
+        <li class="meter"><b lang="fr">Anglais</b><b lang="en">English</b><span lang="fr">Bon niveau, certification à venir</span><span lang="en">Good command, certification coming</span></li>
+        <li class="meter"><b lang="fr">Italien</b><b lang="en">Italian</b><span lang="fr">Bases, en apprentissage intensif</span><span lang="en">Basics, learning intensively</span></li>
+        <li class="meter"><b lang="fr">Espagnol</b><b lang="en">Spanish</b><span lang="fr">Notions, à renforcer</span><span lang="en">Basics, improving</span></li>
+      </ul>
+      <p style="margin-top:1rem" lang="fr">L'italien, je l'ai choisi après un voyage en Sicile cet été. J'apprends en autonomie, avec l'objectif de tenir une vraie conversation.</p>
+      <p style="margin-top:1rem" lang="en">I chose Italian after a trip to Sicily this summer. I am learning on my own, aiming to hold a real conversation.</p>
+    </div>
+    <div class="block">
+      <h3 lang="fr">Pays visités</h3><h3 lang="en">Countries visited</h3>
+      <ul class="list">
+        <li><b lang="fr">Afrique</b><b lang="en">Africa</b> <span lang="fr">Tanzanie (mon plus beau voyage), Maroc, Tunisie, Cap-Vert</span><span lang="en">Tanzania (my favourite trip), Morocco, Tunisia, Cape Verde</span></li>
+        <li><b lang="fr">Amérique du Nord</b><b lang="en">North America</b> <span lang="fr">Canada, États-Unis (New York)</span><span lang="en">Canada, United States (New York)</span></li>
+        <li><b>Europe</b> <span lang="fr">Allemagne (dont un tournoi de rugby à Francfort), Espagne, Italie, Portugal</span><span lang="en">Germany (including a rugby tournament in Frankfurt), Spain, Italy, Portugal</span></li>
+        <li><b lang="fr">Outre-mer</b><b lang="en">French overseas</b> <span>La Réunion, Guadeloupe</span></li>
+      </ul>
+    </div>
+  </div>
+  <div class="block measure">
+    <h3 lang="fr">Mes projets de mobilité</h3><h3 lang="en">My mobility plans</h3>
+    <p lang="fr">Le diplôme exige au moins 17 semaines à l'étranger. Je cible trois destinations, chacune liée à l'un de mes profils modèles : le Canada, le Royaume-Uni et les États-Unis.</p>
+    <p lang="en">The degree requires at least 17 weeks abroad. I am targeting three destinations, each linked to one of my role models: Canada, the United Kingdom and the United States.</p>
+    <div class="todo" lang="fr">Détail des trois projets à venir.</div>
+    <div class="todo" lang="en">Details of the three plans coming soon.</div>
+  </div>
+</section>
+
+<!-- ============ ENGAGEMENT ============ -->
+<section id="civic" role="tabpanel" aria-labelledby="t-civic" hidden>
+  <div class="panel-head measure">
+    <h2 lang="fr">Engagement citoyen et durabilité</h2><h2 lang="en">Sustainability &amp; civic engagement</h2>
+    <p lang="fr">Des engagements concrets, à l'école et en dehors.</p>
+    <p lang="en">Concrete commitments, at school and beyond.</p>
+  </div>
+  <div class="measure">
+    <article class="project">
+      <header><h3>Safe Place, ENSEEIHT</h3><span class="state" lang="fr">Membre depuis 2026</span><span class="state" lang="en">Member since 2026</span></header>
+      <p lang="fr">L'association veille sur les soirées étudiantes. Nous accompagnons les personnes victimes de comportements discriminants, du sexisme jusqu'aux agressions, et nous intervenons quand quelqu'un semble trop alcoolisé pour se protéger, pour s'assurer que personne n'en profite. Nous sommes aussi là, simplement, pour écouter quelqu'un qui a besoin de parler.</p>
+      <p lang="en">The association looks after student parties. We support people who face discriminatory behaviour, from sexism to assault, and step in when someone seems too drunk to protect themselves, to make sure nobody takes advantage. We are also simply there to listen to anyone who needs to talk.</p>
+      <p lang="fr">Cet engagement prolonge des lectures qui m'ont marqué : Le Deuxième Sexe de Simone de Beauvoir, La Femme gelée d'Annie Ernaux, La Cause des femmes de Gisèle Halimi.</p>
+      <p lang="en">This commitment builds on books that shaped me: Simone de Beauvoir's The Second Sex, Annie Ernaux's A Frozen Woman, and Gisèle Halimi's La Cause des femmes.</p>
+    </article>
+    <article class="project">
+      <header><h3 lang="fr">Bénévole au festival Tempo Latino, Gers</h3><h3 lang="en">Volunteer at the Tempo Latino festival, Gers</h3><span class="state" lang="fr">Étés 2025 et 2026</span><span class="state" lang="en">Summers 2025 and 2026</span></header>
+      <p lang="fr">Deux éditions de ce festival de musiques latines : montage des installations, puis service au bar pendant les quatre jours du festival. Du travail d'équipe sous pression, face à un public nombreux.</p>
+      <p lang="en">Two editions of this Latin music festival: setting up the site, then working behind the bar for the four days of the festival. Teamwork under pressure, facing large crowds.</p>
+    </article>
+    <article class="project">
+      <header><h3 lang="fr">Au quotidien</h3><h3 lang="en">Every day</h3></header>
+      <p lang="fr">À Toulouse, je suis un régime végétarien pour réduire mon impact environnemental. Et dans mes projets, je privilégie une fabrication européenne, comme pour les chaussettes de Pilates.</p>
+      <p lang="en">In Toulouse, I follow a vegetarian diet to reduce my environmental footprint. In my projects, I favour European manufacturing, as with the Pilates socks.</p>
+    </article>
+  </div>
+</section>
+
+<!-- ============ SPORT ============ -->
+<section id="sport" role="tabpanel" aria-labelledby="t-sport" hidden>
+  <div class="panel-head measure">
+    <h2 lang="fr">Sport et activités</h2><h2 lang="en">Sport &amp; activities</h2>
+    <p lang="fr">J'ai toujours fait du sport. Aujourd'hui, je me construis un profil d'athlète hybride : explosif et endurant.</p>
+    <p lang="en">I have always played sport. Today I am building myself into a hybrid athlete: explosive and enduring.</p>
+  </div>
+  <div class="cols">
+    <div>
+      <div class="block">
+        <h3 lang="fr">Course à pied</h3><h3 lang="en">Running</h3>
+        <p lang="fr">J'ai commencé en juin 2026 pour retrouver une base physique après la prépa. Aujourd'hui, je cours environ 30 km par semaine et je vise 40 km.</p>
+        <p lang="en">I started in June 2026 to rebuild my fitness after the preparatory years. I now run about 30 km a week and I'm aiming for 40.</p>
+        <ul class="list">
+          <li lang="fr"><b>20 km de nuit</b> le long de la Garonne, à Bordeaux, en août 2026. Un défi lancé à moi-même, pour voir si j'en étais capable.</li>
+          <li lang="en"><b>20 km at night</b> along the Garonne in Bordeaux, in August 2026. A challenge I set myself, to see if I could do it.</li>
+          <li lang="fr"><b>Prochain objectif :</b> un cross de 7 km le 14 janvier 2027.</li>
+          <li lang="en"><b>Next goal:</b> a 7 km cross-country race on 14 January 2027.</li>
+        </ul>
+      </div>
+      <div class="block">
+        <h3 lang="fr">Football</h3><h3 lang="en">Football</h3>
+        <p lang="fr">Je joue avec l'équipe 3 de l'AS de l'N7. Sans jamais avoir joué en club, j'ai tenté les sélections des équipes 1 et 2 : je n'ai pas été retenu, faute de technique, et je travaille désormais mes gestes pour progresser.</p>
+        <p lang="en">I play for N7's third team. Having never played in a club, I tried out for the first and second teams: I wasn't selected due to my technique, so I'm now working on my skills to improve.</p>
+      </div>
+      <div class="block">
+        <h3 lang="fr">Street workout</h3><h3 lang="en">Street workout</h3>
+        <p lang="fr">Deux séances par semaine. Mon défi personnel : enchaîner 100 tractions d'affilée. J'en suis loin, et c'est justement ce qui me motive.</p>
+        <p lang="en">Two sessions a week. My personal challenge: 100 pull-ups in a row. I'm far from it, which is exactly what keeps me going.</p>
+      </div>
+    </div>
+    <div>
+      <div class="block">
+        <h3 lang="fr">Sports de combat</h3><h3 lang="en">Combat sports</h3>
+        <ul class="list">
+          <li class="meter"><b>Judo</b><span lang="fr">8 ans, vice-champion de Paris (moins de 34 kg)</span><span lang="en">8 years, Paris runner-up (under 34 kg)</span></li>
+          <li class="meter"><b lang="fr">Boxe anglaise</b><b lang="en">Boxing</b><span lang="fr">Championnat d'Île-de-France</span><span lang="en">Île-de-France championship</span></li>
+          <li class="meter"><b>Krav-maga</b><span lang="fr">3 à 4 ans</span><span lang="en">3 to 4 years</span></li>
+          <li class="meter"><b lang="fr">Boxe thaï, boxe française</b><b lang="en">Muay Thai, savate</b><span lang="fr">Pratiquées</span><span lang="en">Practised</span></li>
+          <li class="meter"><b lang="fr">Jiu-jitsu brésilien</b><b lang="en">Brazilian jiu-jitsu</b><span lang="fr">Inscription prévue</span><span lang="en">Starting soon</span></li>
+        </ul>
+        <p style="margin-top:1rem" lang="fr">Et aussi : deux ans de rugby enfant, de l'escalade.</p>
+        <p style="margin-top:1rem" lang="en">Also: two years of rugby as a child, and climbing.</p>
+      </div>
+      <div class="block">
+        <h3 lang="fr">Vie associative</h3><h3 lang="en">Student life</h3>
+        <ul class="list">
+          <li lang="fr"><b>Genius 7</b>, l'association des entrepreneurs de l'N7</li>
+          <li lang="en"><b>Genius 7</b>, N7's entrepreneurship association</li>
+          <li lang="fr"><b>Candidat</b> sur les listes du bureau des sports et du foyer</li>
+          <li lang="en"><b>Running</b> for the sports office and the student union</li>
+          <li lang="fr"><b>Club de dessin</b> de l'N7</li>
+          <li lang="en"><b>Drawing club</b> at N7</li>
+        </ul>
+      </div>
+      <div class="block">
+        <h3 lang="fr">En dehors</h3><h3 lang="en">Outside school</h3>
+        <ul class="list">
+          <li lang="fr"><b>Guitare :</b> j'en jouais enfant, je m'y remets.</li>
+          <li lang="en"><b>Guitar:</b> I played as a child and I'm picking it up again.</li>
+          <li lang="fr"><b>Lecture :</b> récemment, The Mom Test de Rob Fitzpatrick et Pourquoi j'ai mangé mon père de Roy Lewis.</li>
+          <li lang="en"><b>Reading:</b> recently, The Mom Test by Rob Fitzpatrick and The Evolution Man by Roy Lewis.</li>
+        </ul>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============ PROJET PRO ============ -->
+<section id="career" role="tabpanel" aria-labelledby="t-career" hidden>
+  <div class="panel-head measure">
+    <h2 lang="fr">Projet professionnel</h2><h2 lang="en">Career development</h2>
+    <p lang="fr">Où je veux aller, et comment je compte y arriver.</p>
+    <p lang="en">Where I want to go, and how I plan to get there.</p>
+  </div>
+
+  <div class="subtabs" role="tablist" aria-label="Projet professionnel">
+    <button class="subtab" role="tab" data-sub="vision"><span lang="fr">Ma vision</span><span lang="en">My vision</span></button>
+    <button class="subtab" role="tab" data-sub="cv">CV</button>
+    <button class="subtab" role="tab" data-sub="models"><span lang="fr">Profils modèles</span><span lang="en">Role models</span></button>
+    <button class="subtab" role="tab" data-sub="video"><span lang="fr">Vidéo</span><span lang="en">Video</span></button>
+  </div>
+
+  <div data-subpanel="vision" class="measure">
+    <p class="quote" lang="fr">Entrepreneuriat, finance quantitative, intelligence artificielle : je ne veux pas choisir, je veux les combiner.</p>
+    <p class="quote" lang="en">Entrepreneurship, quantitative finance, artificial intelligence: I don't want to choose, I want to combine them.</p>
+    <p lang="fr">J'ai choisi l'ingénierie par goût des sciences, et parce que le diplôme d'ingénieur ouvre des portes en France comme à l'international. Mon profil est autant commercial que technique : ce qui m'anime, c'est de transformer une technologie en produit dont les gens ont besoin.</p>
+    <p lang="en">I chose engineering out of a love for science, and because an engineering degree opens doors both in France and abroad. My profile is as commercial as it is technical: what drives me is turning a technology into a product people need.</p>
+    <p lang="fr">Dans cinq à dix ans, je me vois aux États-Unis : à San Francisco pour entreprendre, ou à New York pour la finance, idéalement en mêlant les deux. Puis Londres, ou un retour en France avec cette expérience.</p>
+    <p lang="en">In five to ten years, I see myself in the United States: in San Francisco to build a company, or in New York to work in finance, ideally combining both. Then London, or back to France with that experience.</p>
+    <h3 style="margin:2rem 0 .7rem" lang="fr">Les prochaines étapes</h3><h3 style="margin:2rem 0 .7rem" lang="en">Next steps</h3>
+    <ol class="timeline">
+      <li><div class="when"><span lang="fr">Été 2027</span><span lang="en">Summer 2027</span></div><p lang="fr">Stage de première année.</p><p lang="en">First-year internship.</p></li>
+      <li><div class="when"><span lang="fr">Été 2028</span><span lang="en">Summer 2028</span></div><p lang="fr">Stage de deuxième année.</p><p lang="en">Second-year internship.</p></li>
+      <li><div class="when"><span lang="fr">Troisième année</span><span lang="en">Third year</span></div><p lang="fr">Au moins 17 semaines à l'étranger : Canada, Royaume-Uni ou États-Unis.</p><p lang="en">At least 17 weeks abroad: Canada, the United Kingdom or the United States.</p></li>
+    </ol>
+  </div>
+
+  <div data-subpanel="cv" class="measure">
+    <p lang="fr">Mon CV est disponible en français et en anglais.</p>
+    <p lang="en">My CV is available in French and English.</p>
+    <div class="actions">
+      <a class="btn primary" href="cv-paul-barthe-fr.pdf" target="_blank" rel="noopener"><span lang="fr">CV en français</span><span lang="en">CV in French</span></a>
+      <a class="btn primary" href="cv-paul-barthe-en.pdf" target="_blank" rel="noopener"><span lang="fr">CV en anglais</span><span lang="en">CV in English</span></a>
+      <a class="btn js-linkedin" href="#" target="_blank" rel="noopener">LinkedIn</a>
+    </div>
+  </div>
+
+  <div data-subpanel="models" class="measure">
+    <p lang="fr">Trois parcours qui m'inspirent, un par voie qui m'attire.</p>
+    <p lang="en">Three career paths that inspire me, one for each direction I'm drawn to.</p>
+    <div class="todo" lang="fr">Analyse des trois profils à venir.</div>
+    <div class="todo" lang="en">Analysis of the three profiles coming soon.</div>
+  </div>
+
+  <div data-subpanel="video" class="measure">
+    <p lang="fr">Ma proposition de valeur en deux minutes, en anglais.</p>
+    <p lang="en">My value proposition in two minutes, in English.</p>
+    <div class="todo" lang="fr">Vidéo à venir.</div>
+    <div class="todo" lang="en">Video coming soon.</div>
+  </div>
+</section>
+
+</main>
+
+<footer>
+  <div class="wrap">
+    <span>Paul Barthe, ENSEEIHT</span>
+    <span><a class="js-mail" href="#">Email</a> &nbsp; <a class="js-linkedin" href="#" target="_blank" rel="noopener">LinkedIn</a></span>
+    <span lang="fr">Version 1, octobre 2026</span><span lang="en">Version 1, October 2026</span>
+  </div>
+</footer>
+
+<script>
+/* ===== À modifier ici ===== */
+const EMAIL = "barthe.paul.pro@gmail.com";
+const LINKEDIN = "#"; // coller l'URL de ton profil LinkedIn
+
+document.querySelectorAll(".js-mail").forEach(a => a.href = "mailto:" + EMAIL);
+document.querySelectorAll(".js-linkedin").forEach(a => a.href = LINKEDIN);
+
+/* Langue */
+function setLang(l){
+  document.documentElement.dataset.lang = l;
+  document.documentElement.lang = l;
+  document.querySelectorAll("[data-set-lang]").forEach(b => b.setAttribute("aria-pressed", b.dataset.setLang === l));
+  try{ localStorage.setItem("lang", l); }catch(e){}
+}
+document.querySelectorAll("[data-set-lang]").forEach(b => b.addEventListener("click", () => setLang(b.dataset.setLang)));
+try{ const s = localStorage.getItem("lang"); if(s) setLang(s); }catch(e){}
+
+/* Onglets */
+const tabs = [...document.querySelectorAll(".tab")];
+const ids = tabs.map(t => t.getAttribute("aria-controls"));
+function showSub(panel, sub){
+  const subs = panel.querySelectorAll(".subtab");
+  if(!subs.length) return;
+  const target = sub || subs[0].dataset.sub;
+  subs.forEach(s => s.setAttribute("aria-selected", s.dataset.sub === target));
+  panel.querySelectorAll("[data-subpanel]").forEach(p => p.hidden = p.dataset.subpanel !== target);
+}
+function show(id, sub, focus){
+  if(!ids.includes(id)) id = "welcome";
+  tabs.forEach(t => {
+    const on = t.getAttribute("aria-controls") === id;
+    t.setAttribute("aria-selected", on); t.tabIndex = on ? 0 : -1;
+    document.getElementById(t.getAttribute("aria-controls")).hidden = !on;
+    if(on && focus) t.focus();
+  });
+  showSub(document.getElementById(id), sub);
+  window.scrollTo(0,0);
+}
+tabs.forEach((t,i) => {
+  t.addEventListener("click", () => { location.hash = t.getAttribute("aria-controls"); });
+  t.addEventListener("keydown", e => {
+    if(e.key !== "ArrowRight" && e.key !== "ArrowLeft") return;
+    const n = (i + (e.key === "ArrowRight" ? 1 : -1) + tabs.length) % tabs.length;
+    location.hash = ids[n]; tabs[n].focus();
+  });
+});
+document.querySelectorAll(".subtab").forEach(s => s.addEventListener("click", () => {
+  const panel = s.closest("[role=tabpanel]");
+  location.hash = panel.id + "/" + s.dataset.sub;
+}));
+document.querySelectorAll("[data-go]").forEach(b => b.addEventListener("click", () => {
+  location.hash = b.dataset.go + (b.dataset.sub ? "/" + b.dataset.sub : "");
+}));
+function route(){ const [id, sub] = location.hash.slice(1).split("/"); show(id || "welcome", sub); }
+window.addEventListener("hashchange", route);
+route();
+</script>
+</body>
+</html>
