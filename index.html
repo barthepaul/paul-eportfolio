@@ -113,6 +113,8 @@ main{padding:2.5rem 0 4rem}
 .list li b{font-weight:600}
 .meter{display:flex;justify-content:space-between;gap:1rem}
 .meter span:last-child{color:var(--muted);text-align:right}
+.video{position:relative;aspect-ratio:16/9;border-radius:8px;overflow:hidden;background:#000}
+.video iframe{position:absolute;inset:0;width:100%;height:100%;border:0}
 .quote{font:500 1.35rem/1.35 var(--display);border-left:4px solid var(--bib);padding-left:1rem;margin:1.5rem 0}
 
 footer{border-top:1px solid var(--rule);padding:2rem 0;color:var(--muted);font-size:.95rem}
@@ -172,8 +174,8 @@ footer .wrap{display:flex;flex-wrap:wrap;justify-content:space-between;gap:1rem}
       <p class="lede" lang="en">I am a first-year student at ENSEEIHT (Toulouse INP), in the Digital Sciences department. Three fields particularly interest me: entrepreneurship, quantitative finance and artificial intelligence.</p>
       <p lang="fr">Ce portfolio présente mon parcours, mes projets et mes engagements.</p>
       <p lang="en">This portfolio presents my background, my projects and my commitments.</p>
-      <span class="status" lang="fr"><b>Je recherche</b> un stage de première année pour l'été 2027.</span>
-      <span class="status" lang="en"><b>Looking for</b> a first-year internship for summer 2027.</span>
+      <span class="status" lang="fr"><b>Je recherche</b> un stage en développement logiciel pour l'été 2027.</span>
+      <span class="status" lang="en"><b>Looking for</b> a software development internship for summer 2027.</span>
       <div class="actions">
         <button class="btn primary" type="button" data-go="career" data-sub="cv"><span lang="fr">Voir mon CV</span><span lang="en">See my CV</span></button>
         <button class="btn" type="button" data-go="career" data-sub="video"><span lang="fr">Ma vidéo de présentation</span><span lang="en">My pitch video</span></button>
@@ -214,8 +216,8 @@ footer .wrap{display:flex;flex-wrap:wrap;justify-content:space-between;gap:1rem}
         <h3 lang="en">PSI preparatory class, Lycée Gustave Eiffel, Bordeaux</h3>
         <p lang="fr">Deux années de mathématiques, de physique et de sciences de l'ingénieur à un rythme soutenu. J'en retiens surtout une méthode de travail : savoir m'organiser, hiérarchiser mes priorités et durer dans l'effort.</p>
         <p lang="en">Two years of mathematics, physics and engineering science at a demanding pace. Above all, I came away with a way of working: organising myself, setting priorities and sustaining effort over time.</p>
-        <p lang="fr"><b>TIPE :</b> détection des nids de chenilles processionnaires à la cime des pins par traitement d'image, en Python. Une porte d'entrée vers la vision par ordinateur : la suite logique serait de générer des images d'entraînement et d'entraîner des modèles plus robustes.</p>
-        <p lang="en"><b>Research project (TIPE):</b> detecting processionary caterpillar nests at the top of pine trees using image processing, in Python. A gateway to computer vision: the natural next step would be to generate training images and train more robust models.</p>
+        <p lang="fr"><b>TIPE :</b> détection des nids de chenilles processionnaires à la cime des pins par traitement d'image, en Python. J'ai choisi de coder les traitements moi-même, sans bibliothèque spécialisée, pour mieux comprendre les algorithmes, et j'ai testé le programme sur une cinquantaine de photos d'une maquette que j'avais construite. La suite logique serait d'utiliser l'apprentissage automatique pour obtenir une détection plus robuste.</p>
+        <p lang="en"><b>Research project (TIPE):</b> detecting processionary caterpillar nests at the top of pine trees using image processing, in Python. I chose to code the processing myself, without specialised libraries, to better understand the algorithms, and I tested the program on about fifty photos of a model I had built. The natural next step would be to use machine learning for more robust detection.</p>
       </li>
       <li>
         <div class="when">2024</div>
@@ -238,20 +240,18 @@ footer .wrap{display:flex;flex-wrap:wrap;justify-content:space-between;gap:1rem}
         <dd lang="fr">Les habitudes alimentaires tournent souvent autour d'un petit nombre de plats, alors que la cuisine régionale offre une grande variété de recettes peu connues.</dd>
         <dd lang="en">Eating habits often revolve around a small number of dishes, while regional cuisine offers a wide variety of little-known recipes.</dd>
         <dt lang="fr">Mon rôle</dt><dt lang="en">My role</dt>
-        <dd lang="fr">Seul sur le projet : conception du produit, choix des fonctionnalités, développement en Java assisté par IA, tests.</dd>
-        <dd lang="en">Solo project: product design, feature choices, AI-assisted development in Java, testing.</dd>
+        <dd lang="fr">Seul sur le projet : conception du produit, choix des fonctionnalités, mise au point de toute l'application avec l'aide de l'intelligence artificielle, tests. J'utilise le framework Expo, basé sur React Native, qui permet d'avoir une seule base de code pour iPhone et Android, et je teste l'application directement sur mon téléphone avec Expo Go.</dd>
+        <dd lang="en">Solo project: product design, feature choices, building the whole app with the help of artificial intelligence, testing. I use the Expo framework, built on React Native, which allows a single codebase for iPhone and Android, and I test the app directly on my phone with Expo Go.</dd>
         <dt lang="fr">Ce que fait l'appli</dt><dt lang="en">What it does</dt>
-        <dd lang="fr">Elle propose des plats variés adaptés à chaque utilisateur et met en avant des plats d'autres régions, notamment des plats de terroir.</dd>
-        <dd lang="en">It suggests varied dishes tailored to each user and highlights dishes from other regions, especially traditional ones.</dd>
+        <dd lang="fr">Elle propose des recettes et encourage à découvrir de nouveaux plats, notamment de différentes régions. Elle peut aussi scanner les aliments du réfrigérateur, grâce à l'API de Claude (Anthropic), pour suggérer des recettes avec ce qui est disponible.</dd>
+        <dd lang="en">It suggests recipes and encourages people to discover new dishes, especially from different regions. It can also scan the food in your fridge, using the Claude API (Anthropic), to suggest recipes based on what you have.</dd>
         <dt lang="fr">Où j'en suis</dt><dt lang="en">Status</dt>
-        <dd lang="fr">Environ 40 heures de travail. La plupart des fonctionnalités sont opérationnelles.</dd>
-        <dd lang="en">About 40 hours of work. Most features are up and running.</dd>
+        <dd lang="fr">L'application fonctionne. Je prévois de la publier sur l'App Store dès que j'aurai réuni le financement nécessaire.</dd>
+        <dd lang="en">The app works. I plan to publish it on the App Store as soon as I have raised the necessary funds.</dd>
         <dt lang="fr">Ce que j'apprends</dt><dt lang="en">What I'm learning</dt>
         <dd lang="fr">Piloter un développement avec une IA demande un cahier des charges précis et des tests rigoureux : le code ne vaut que par la clarté de ce qu'on demande.</dd>
         <dd lang="en">Steering development with an AI takes precise specifications and rigorous testing: the code is only as good as the clarity of the request.</dd>
       </dl>
-      <div class="todo" lang="fr">Captures d'écran à venir.</div>
-      <div class="todo" lang="en">Screenshots coming soon.</div>
     </article>
 
     <article class="project">
@@ -259,7 +259,7 @@ footer .wrap{display:flex;flex-wrap:wrap;justify-content:space-between;gap:1rem}
         <h3>Tago</h3>
         <p class="tagline" lang="fr">Un traceur connecté qui vous prévient avant que vous n'oubliiez vos clés.</p>
         <p class="tagline" lang="en">A smart tracker that warns you before you forget your keys.</p>
-        <span class="state" lang="fr">Étude de marché, en équipe de trois</span><span class="state" lang="en">Market research, team of three</span>
+        <span class="state" lang="fr">Entretiens utilisateurs en cours, en équipe de trois</span><span class="state" lang="en">User interviews underway, team of three</span>
       </header>
       <dl class="facts">
         <dt lang="fr">Le problème</dt><dt lang="en">The problem</dt>
@@ -271,15 +271,19 @@ footer .wrap{display:flex;flex-wrap:wrap;justify-content:space-between;gap:1rem}
         <dt lang="fr">L'équipe</dt><dt lang="en">The team</dt>
         <dd lang="fr">Trois élèves de l'N7 aux profils complémentaires : sciences du numérique (moi), mécanique des fluides et énergétique, électronique.</dd>
         <dd lang="en">Three N7 students with complementary backgrounds: digital sciences (me), fluid mechanics, and electronics.</dd>
+        <dt lang="fr">Mon rôle</dt><dt lang="en">My role</dt>
+        <dd lang="fr">L'idée vient de moi. Je m'occupe surtout du volet commercial, tout en m'intéressant au matériel, et je fais le lien avec l'équipe technique.</dd>
+        <dd lang="en">The idea came from me. My role is mainly on the business side, though I'm also interested in the hardware: I bridge the business and technical sides of the project.</dd>
         <dt lang="fr">Fait jusqu'ici</dt><dt lang="en">Done so far</dt>
-        <dd lang="fr">Analyse des concurrents et des technologies de localisation, premiers échanges avec de futurs utilisateurs.</dd>
-        <dd lang="en">Competitor and location-technology analysis, first conversations with potential users.</dd>
-        <dt lang="fr">Prochaine étape</dt><dt lang="en">Next step</dt>
-        <dd lang="fr">Interroger 100 personnes, avec un objectif d'au moins 50 retours positifs avant d'aller plus loin. Les entretiens suivent la méthode du livre The Mom Test : parler des habitudes réelles des gens, pas de notre idée.</dd>
-        <dd lang="en">Interview 100 people, aiming for at least 50 positive responses before going further. The interviews follow The Mom Test method: ask about people's real habits, not about our idea.</dd>
+        <dd lang="fr">Analyse des concurrents et des technologies de localisation : nous avons retenu le Bluetooth et l'ultra-wideband (UWB). Une quinzaine d'entretiens avec des utilisateurs potentiels montrent un vrai intérêt : tout le monde a déjà oublié ses clés ou ses lunettes de soleil, et certaines personnes interrogées nous ont dit que le produit était fait pour elles.</dd>
+        <dd lang="en">Competitor and location-technology analysis: we chose Bluetooth and ultra-wideband (UWB). Around fifteen interviews with potential users show genuine interest: everyone has forgotten their keys or sunglasses at some point, and some interviewees told us the product was made for them.</dd>
+        <dt lang="fr">Le défi</dt><dt lang="en">The challenge</dt>
+        <dd lang="fr">Faire tenir un circuit imprimé miniature dans un objet qui reste esthétique.</dd>
+        <dd lang="en">Fitting a miniature circuit board into an object that still looks good.</dd>
+        <dt lang="fr">En cours</dt><dt lang="en">In progress</dt>
+        <dd lang="fr">Atteindre 100 entretiens, pour vérifier que le besoin existe vraiment avant d'aller plus loin. Les entretiens suivent la méthode du livre The Mom Test : parler des habitudes réelles des gens, pas de notre idée.</dd>
+        <dd lang="en">Reach 100 interviews, to check that the need is real before going further. The interviews follow The Mom Test method: ask about people's real habits, not about our idea.</dd>
       </dl>
-      <div class="todo" lang="fr">Premiers designs à venir.</div>
-      <div class="todo" lang="en">First designs coming soon.</div>
     </article>
 
     <article class="project idea">
@@ -328,12 +332,12 @@ footer .wrap{display:flex;flex-wrap:wrap;justify-content:space-between;gap:1rem}
       <div class="block">
         <h3 lang="fr">Compétences techniques</h3><h3 lang="en">Technical skills</h3>
         <ul class="list">
-          <li class="meter"><b>Python</b><span lang="fr">TIPE, projets personnels</span><span lang="en">Research project, personal projects</span></li>
-          <li class="meter"><b>Ada</b><span lang="fr">Cours à l'N7</span><span lang="en">N7 coursework</span></li>
-          <li class="meter"><b>C</b><span lang="fr">En apprentissage (France-IOI)</span><span lang="en">Learning (France-IOI)</span></li>
-          <li class="meter"><b>Java</b><span lang="fr">Notions, acquises en développant une application personnelle</span><span lang="en">Basics, learned while building a personal app</span></li>
+          <li class="meter"><b>Python</b><span lang="fr">Bon niveau</span><span lang="en">Good level</span></li>
+          <li class="meter"><b>Ada</b><span lang="fr">Bon niveau scolaire</span><span lang="en">Good academic level</span></li>
+          <li class="meter"><b>C</b><span lang="fr">Débutant</span><span lang="en">Beginner</span></li>
           <li class="meter"><b>Linux</b><span lang="fr">Débutant</span><span lang="en">Beginner</span></li>
           <li class="meter"><b>MATLAB</b><span lang="fr">Débutant</span><span lang="en">Beginner</span></li>
+          <li class="meter"><b>Git</b><span lang="fr">Débutant</span><span lang="en">Beginner</span></li>
           <li class="meter"><b lang="fr">Développement assisté par IA</b><b lang="en">AI-assisted development</b><span lang="fr">Usage quotidien</span><span lang="en">Daily use</span></li>
         </ul>
       </div>
@@ -346,8 +350,8 @@ footer .wrap{display:flex;flex-wrap:wrap;justify-content:space-between;gap:1rem}
           <li lang="en"><b>Generous</b></li>
           <li lang="fr"><b>À l'écoute</b></li>
           <li lang="en"><b>A good listener</b></li>
-          <li lang="fr"><b>Leader et joueur d'équipe</b></li>
-          <li lang="en"><b>A leader and a team player</b></li>
+          <li lang="fr"><b>Leader</b></li>
+          <li lang="en"><b>A leader</b></li>
         </ul>
       </div>
     </div>
@@ -366,7 +370,7 @@ footer .wrap{display:flex;flex-wrap:wrap;justify-content:space-between;gap:1rem}
       <h3 lang="fr">Langues</h3><h3 lang="en">Languages</h3>
       <ul class="list">
         <li class="meter"><b lang="fr">Français</b><b lang="en">French</b><span lang="fr">Langue maternelle</span><span lang="en">Native</span></li>
-        <li class="meter"><b lang="fr">Anglais</b><b lang="en">English</b><span lang="fr">Bon niveau, certification à venir</span><span lang="en">Good command, certification coming</span></li>
+        <li class="meter"><b lang="fr">Anglais</b><b lang="en">English</b><span lang="fr">B2</span><span lang="en">B2</span></li>
         <li class="meter"><b lang="fr">Italien</b><b lang="en">Italian</b><span lang="fr">Bases</span><span lang="en">Basics</span></li>
         <li class="meter"><b lang="fr">Espagnol</b><b lang="en">Spanish</b><span lang="fr">Bases, en apprentissage intensif</span><span lang="en">Basics, learning intensively</span></li>
       </ul>
@@ -381,10 +385,64 @@ footer .wrap{display:flex;flex-wrap:wrap;justify-content:space-between;gap:1rem}
   </div>
   <div class="block measure">
     <h3 lang="fr">Mes projets de mobilité</h3><h3 lang="en">My mobility plans</h3>
-    <p lang="fr">Le diplôme exige au moins 17 semaines à l'étranger. Je cible trois destinations, chacune liée à l'un de mes profils modèles : le Canada, le Royaume-Uni et les États-Unis.</p>
-    <p lang="en">The degree requires at least 17 weeks abroad. I am targeting three destinations, each linked to one of my role models: Canada, the United Kingdom and the United States.</p>
-    <div class="todo" lang="fr">Détail des trois projets à venir.</div>
-    <div class="todo" lang="en">Details of the three plans coming soon.</div>
+    <p lang="fr">Le diplôme exige au moins 17 semaines à l'étranger. Je cible trois destinations, chacune liée à l'un de mes profils modèles : le Canada, les États-Unis et le Royaume-Uni.</p>
+    <p lang="en">The degree requires at least 17 weeks abroad. I am targeting three destinations, each linked to one of my role models: Canada, the United States and the United Kingdom.</p>
+    <article class="project">
+      <header>
+        <h3 lang="fr">1. Canada, Montréal : l'intelligence artificielle</h3>
+        <h3 lang="en">1. Canada, Montreal: artificial intelligence</h3>
+        <span class="state" lang="fr">Lié au profil modèle n° 1</span><span class="state" lang="en">Linked to role model 1</span>
+      </header>
+      <dl class="facts">
+        <dt lang="fr">Pourquoi</dt><dt lang="en">Why</dt>
+        <dd lang="fr">Montréal est l'un des grands pôles mondiaux de l'IA, et cortAIx, l'accélérateur IA de Thales où travaille mon premier profil modèle, y est implanté. J'ai aussi gardé un très bon souvenir de mon voyage au Canada.</dd>
+        <dd lang="en">Montreal is one of the world's major AI hubs, and cortAIx, the Thales AI accelerator where my first role model works, has a presence there. I also have great memories of my trip to Canada.</dd>
+        <dt lang="fr">Format envisagé</dt><dt lang="en">Possible format</dt>
+        <dd lang="fr">Un semestre d'échange universitaire, ou un stage dans une entreprise ou un laboratoire travaillant sur l'IA.</dd>
+        <dd lang="en">An exchange semester at a university, or an internship in a company or lab working on AI.</dd>
+        <dt lang="fr">Ce que j'en attends</dt><dt lang="en">What I hope to gain</dt>
+        <dd lang="fr">Approfondir l'IA dans un environnement bilingue et comprendre comment une technologie de recherche devient un produit.</dd>
+        <dd lang="en">Deepen my knowledge of AI in a bilingual environment and understand how a research technology becomes a product.</dd>
+      </dl>
+    </article>
+    <article class="project">
+      <header>
+        <h3 lang="fr">2. États-Unis, San Francisco : l'entrepreneuriat</h3>
+        <h3 lang="en">2. United States, San Francisco: entrepreneurship</h3>
+        <span class="state" lang="fr">Lié au profil modèle n° 2</span><span class="state" lang="en">Linked to role model 2</span>
+      </header>
+      <dl class="facts">
+        <dt lang="fr">Pourquoi</dt><dt lang="en">Why</dt>
+        <dd lang="fr">La région de San Francisco concentre une grande partie des startups technologiques mondiales. C'est l'endroit idéal pour voir de près comment on crée et fait grandir une entreprise.</dd>
+        <dd lang="en">The San Francisco area is home to a large share of the world's tech startups. It is the ideal place to see up close how a company is built and grown.</dd>
+        <dt lang="fr">Format envisagé</dt><dt lang="en">Possible format</dt>
+        <dd lang="fr">Un stage dans une startup technologique, idéalement en développement logiciel ou en produit.</dd>
+        <dd lang="en">An internship at a tech startup, ideally in software development or product.</dd>
+        <dt lang="fr">Ce que j'en attends</dt><dt lang="en">What I hope to gain</dt>
+        <dd lang="fr">Apprendre les méthodes des startups (tester vite, écouter les utilisateurs) pour les appliquer à mes propres projets, comme Tago.</dd>
+        <dd lang="en">Learn startup methods (testing fast, listening to users) to apply them to my own projects, such as Tago.</dd>
+      </dl>
+    </article>
+    <article class="project">
+      <header>
+        <h3 lang="fr">3. Royaume-Uni, Londres : la finance et l'entrepreneuriat</h3>
+        <h3 lang="en">3. United Kingdom, London: finance and entrepreneurship</h3>
+        <span class="state" lang="fr">Lié au profil modèle n° 3</span><span class="state" lang="en">Linked to role model 3</span>
+      </header>
+      <dl class="facts">
+        <dt lang="fr">Pourquoi</dt><dt lang="en">Why</dt>
+        <dd lang="fr">Londres est la première place financière d'Europe et un grand centre de la fintech, là où la finance, la technologie et l'entrepreneuriat se rencontrent.</dd>
+        <dd lang="en">London is Europe's leading financial centre and a major fintech hub, where finance, technology and entrepreneurship meet.</dd>
+        <dt lang="fr">Format envisagé</dt><dt lang="en">Possible format</dt>
+        <dd lang="fr">Un semestre d'échange universitaire, ou un stage dans une fintech.</dd>
+        <dd lang="en">An exchange semester at a university, or an internship at a fintech company.</dd>
+        <dt lang="fr">Ce que j'en attends</dt><dt lang="en">What I hope to gain</dt>
+        <dd lang="fr">Découvrir la finance de l'intérieur et voir comment mes compétences en informatique peuvent y servir.</dd>
+        <dd lang="en">Discover finance from the inside and see how my computer science skills can be useful there.</dd>
+      </dl>
+    </article>
+    <p lang="fr">Pour chacun de ces projets, je vérifierai avec le service des relations internationales de l'N7 les accords d'échange existants, le niveau d'anglais demandé et les possibilités de financement.</p>
+    <p lang="en">For each of these plans, I will check with N7's international relations office which exchange agreements exist, the required English level and the funding options.</p>
   </div>
 </section>
 
@@ -452,8 +510,8 @@ footer .wrap{display:flex;flex-wrap:wrap;justify-content:space-between;gap:1rem}
       <div class="block">
         <h3 lang="fr">Vie associative</h3><h3 lang="en">Student life</h3>
         <ul class="list">
-          <li lang="fr"><b>Genius 7</b>, l'association des entrepreneurs de l'N7</li>
-          <li lang="en"><b>Genius 7</b>, N7's entrepreneurship association</li>
+          <li lang="fr"><b>Genius 7</b>, l'association des entrepreneurs de l'N7 : je suis ses formations à l'entrepreneuriat et j'y fais le point sur mes projets avec des élèves de deuxième et troisième année.</li>
+          <li lang="en"><b>Genius 7</b>, N7's entrepreneurship association: I attend its entrepreneurship training sessions and discuss my projects' progress with second- and third-year students.</li>
           <li lang="fr"><b>Candidat</b> sur les listes du bureau des sports et du foyer</li>
           <li lang="en"><b>Running</b> for the sports office and the student union</li>
           <li lang="fr"><b>Club de dessin</b> de l'N7</li>
@@ -497,9 +555,10 @@ footer .wrap{display:flex;flex-wrap:wrap;justify-content:space-between;gap:1rem}
     <p lang="en">In the longer term, I would like to gain experience in the United States: in San Francisco to learn how to build a company, or in New York to discover finance, ideally combining both. I want to give myself the means to work internationally.</p>
     <h3 style="margin:2rem 0 .7rem" lang="fr">Les prochaines étapes</h3><h3 style="margin:2rem 0 .7rem" lang="en">Next steps</h3>
     <ol class="timeline">
-      <li><div class="when"><span lang="fr">Été 2027</span><span lang="en">Summer 2027</span></div><p lang="fr">Stage de première année.</p><p lang="en">First-year internship.</p></li>
+      <li><div class="when"><span lang="fr">Été 2027</span><span lang="en">Summer 2027</span></div><p lang="fr">Stage de première année, idéalement en développement logiciel.</p><p lang="en">First-year internship, ideally in software development.</p></li>
       <li><div class="when"><span lang="fr">Été 2028</span><span lang="en">Summer 2028</span></div><p lang="fr">Stage de deuxième année.</p><p lang="en">Second-year internship.</p></li>
       <li><div class="when"><span lang="fr">Troisième année</span><span lang="en">Third year</span></div><p lang="fr">Au moins 17 semaines à l'étranger : Canada, Royaume-Uni ou États-Unis.</p><p lang="en">At least 17 weeks abroad: Canada, the United Kingdom or the United States.</p></li>
+      <li><div class="when"><span lang="fr">Fin de cursus</span><span lang="en">End of studies</span></div><p lang="fr">Une piste qui m'intéresse : le master X-HEC Entrepreneurs, pour me former à la création d'entreprise.</p><p lang="en">An option I'm interested in: the X-HEC Entrepreneurs master's programme, to learn how to start a company.</p></li>
     </ol>
   </div>
 
@@ -516,15 +575,86 @@ footer .wrap{display:flex;flex-wrap:wrap;justify-content:space-between;gap:1rem}
   <div data-subpanel="models" class="measure">
     <p lang="fr">Trois parcours qui m'inspirent, un par voie qui m'attire.</p>
     <p lang="en">Three career paths that inspire me, one for each direction I'm drawn to.</p>
-    <div class="todo" lang="fr">Analyse des trois profils à venir.</div>
-    <div class="todo" lang="en">Analysis of the three profiles coming soon.</div>
+    <article class="project">
+      <header>
+        <h3 lang="fr">1. L'IA et l'entrepreneuriat dans un grand groupe</h3>
+        <h3 lang="en">1. AI and entrepreneurship inside a large group</h3>
+        <p class="tagline" lang="fr">Sébastien, directeur des assets IA exportables de cortAIx, l'accélérateur d'intelligence artificielle de Thales</p>
+        <p class="tagline" lang="en">Sébastien, Director of Exportable AI Assets at cortAIx, Thales's artificial intelligence accelerator</p>
+        <span class="state" lang="fr">Profil découvert sur My Job Glasses</span><span class="state" lang="en">Profile found on My Job Glasses</span>
+      </header>
+      <dl class="facts">
+        <dt lang="fr">Son parcours</dt><dt lang="en">Career path</dt>
+        <dd lang="fr">Une maîtrise en électronique, électrotechnique et automatique, puis un diplôme d'ingénieur de Télécom Paris. Il entre chez Thales comme ingénieur système, devient responsable du développement produit, puis d'une ligne de produits, avant de manager un département. Il pilote ensuite la transformation d'une ingénierie de 300 personnes, puis devient directeur des compétences pour toute l'ingénierie du groupe.</dd>
+        <dd lang="en">A master's degree in electronics, electrical engineering and control, then an engineering degree from Télécom Paris. He joined Thales as a systems engineer, became head of product development, then of a product line, before managing a department. He then led the transformation of a 300-person engineering organisation and became head of skills for the whole group's engineering.</dd>
+        <dt lang="fr">Son rôle aujourd'hui</dt><dt lang="en">His role today</dt>
+        <dd lang="fr">Il repère des opportunités commerciales autour de solutions d'IA de Thales, les fait développer et les porte sur le marché en tant que Product Owner. Il se décrit lui-même comme entrepreneur.</dd>
+        <dd lang="en">He identifies business opportunities for Thales AI solutions, has them developed and brings them to market as Product Owner. He describes himself as an entrepreneur.</dd>
+        <dt lang="fr">Pourquoi il m'inspire</dt><dt lang="en">Why he inspires me</dt>
+        <dd lang="fr">Son poste réunit les trois choses qui m'attirent : la technique, l'intelligence artificielle et l'entrepreneuriat. Son parcours montre aussi qu'on peut entreprendre au sein d'un grand groupe, et qu'une base technique solide ouvre ensuite vers le produit, le commerce et le management.</dd>
+        <dd lang="en">His position brings together the three things that interest me: engineering, artificial intelligence and entrepreneurship. His career also shows that you can be an entrepreneur inside a large group, and that a solid technical foundation later opens the way to product, business and management roles.</dd>
+        <dt lang="fr">Ce que j'en retiens</dt><dt lang="en">What I take from it</dt>
+        <dd lang="fr">D'abord, une base technique solide compte : il a passé plusieurs années comme ingénieur système avant d'évoluer vers le produit, ce qui me conforte dans l'idée de commencer par un stage technique. Ensuite, entreprendre ne veut pas forcément dire créer sa propre entreprise : on peut repérer des opportunités et porter un produit jusqu'au marché au sein d'un grand groupe. Enfin, plus on avance, plus la dimension humaine prend de la place : il a développé un vrai goût pour le management et le développement des talents.</dd>
+        <dd lang="en">First, a solid technical foundation matters: he spent several years as a systems engineer before moving into product, which confirms my idea of starting with a technical internship. Second, being an entrepreneur doesn't necessarily mean founding your own company: you can spot opportunities and bring a product to market inside a large group. Finally, the further you go, the more the human side matters: he developed a real interest in management and talent development.</dd>
+        <dt lang="fr">Lien avec ma mobilité</dt><dt lang="en">Link to my mobility</dt>
+        <dd lang="fr">cortAIx est notamment implanté à Montréal, l'un des grands pôles mondiaux de l'IA. C'est ce qui oriente mon premier projet de mobilité vers le Canada.</dd>
+        <dd lang="en">cortAIx has a hub in Montreal, one of the world's major AI centres. This is what points my first mobility plan towards Canada.</dd>
+      </dl>
+    </article>
+    <article class="project">
+      <header>
+        <h3 lang="fr">2. Créer son entreprise avec des associés</h3>
+        <h3 lang="en">2. Starting a company with partners</h3>
+        <p class="tagline" lang="fr">Claire, cofondatrice d'une société de courtage en produits financiers, puis d'une société dans l'immobilier</p>
+        <p class="tagline" lang="en">Claire, co-founder of a financial brokerage firm, then of a real estate company</p>
+        <span class="state" lang="fr">Entretien réalisé</span><span class="state" lang="en">Interview conducted</span>
+      </header>
+      <dl class="facts">
+        <dt lang="fr">Son parcours</dt><dt lang="en">Career path</dt>
+        <dd lang="fr">Claire travaillait à la Société Générale quand elle a décidé, en 2010, de partir avec trois collègues pour monter leur propre société de courtage.</dd>
+        <dd lang="en">Claire was working at Société Générale when, in 2010, she decided to leave with three colleagues and set up their own brokerage firm.</dd>
+        <dt lang="fr">Ce qui m'a marqué</dt><dt lang="en">What struck me</dt>
+        <dd lang="fr">Je m'attendais à ce qu'elle me parle surtout de l'idée de départ. En fait, elle a beaucoup insisté sur l'équipe. Ils étaient quatre, avec des profils très différents, et c'est ce qui leur a permis de démarrer sans lever de fonds. Mais ils avaient chacun un droit de veto, et au premier désaccord, tout s'est bloqué. Elle m'a dit que c'était sa plus grosse erreur, au point que dans sa nouvelle société, elle a réglé la question avant même de commencer. J'ai aussi retenu que leur succès est venu d'un produit sur lequel ils ne comptaient pas du tout.</dd>
+        <dd lang="en">I expected her to talk mostly about the original idea. Instead, she kept coming back to the team. There were four of them, with very different profiles, and that is what allowed them to start without raising money. But each of them had a veto, and at the first disagreement, everything got stuck. She told me it was her biggest mistake, so much so that in her new company she settled the question before even starting. I also remember that their success came from a product they were not counting on at all.</dd>
+        <dt lang="fr">Pour moi</dt><dt lang="en">For me</dt>
+        <dd lang="fr">Avec Tago, on est trois et pour l'instant tout se passe bien. Mais après cet échange, je compte bien qu'on se mette d'accord rapidement sur la façon de prendre les décisions, avant que la question se pose vraiment.</dd>
+        <dd lang="en">With Tago, there are three of us and so far everything is going well. But after this conversation, I definitely want us to agree soon on how we make decisions, before the question really comes up.</dd>
+        <dt lang="fr">Lien avec ma mobilité</dt><dt lang="en">Link to my mobility</dt>
+        <dd lang="fr">Son histoire m'a donné envie de voir comment on monte une entreprise là où il s'en crée le plus, à San Francisco.</dd>
+        <dd lang="en">Her story made me want to see how companies are built where the most of them are created, in San Francisco.</dd>
+      </dl>
+    </article>
+
+    <article class="project">
+      <header>
+        <h3 lang="fr">3. De l'ingénierie à la finance, à Londres</h3>
+        <h3 lang="en">3. From engineering to finance, in London</h3>
+        <p class="tagline" lang="fr">Marc, ingénieur, passé par la finance de marché à Paris et à Londres, aujourd'hui dans une jeune société tech</p>
+        <p class="tagline" lang="en">Marc, an engineer who worked in capital markets in Paris and London, now at a young tech company</p>
+        <span class="state" lang="fr">Entretien réalisé</span><span class="state" lang="en">Interview conducted</span>
+      </header>
+      <dl class="facts">
+        <dt lang="fr">Son parcours</dt><dt lang="en">Career path</dt>
+        <dd lang="fr">Marc est ingénieur. Il a commencé à la Société Générale, où il concevait des produits financiers, puis Morgan Stanley est venu le chercher pour monter une équipe à Londres. Aujourd'hui, il travaille dans une jeune société tech.</dd>
+        <dd lang="en">Marc is an engineer. He started at Société Générale, where he designed financial products, then Morgan Stanley came to get him to build a team in London. Today, he works at a young tech company.</dd>
+        <dt lang="fr">Ce qui m'a marqué</dt><dt lang="en">What struck me</dt>
+        <dd lang="fr">Je lui ai demandé ce qui changeait vraiment à Londres. D'après lui, la banque française avait de meilleurs produits, mais chez Morgan Stanley, les clients avaient confiance et voulaient continuer à travailler avec eux, même quand un produit ne leur convenait pas. Il m'a aussi parlé d'un milieu beaucoup plus direct, et d'équipes où l'on croise des gens aux parcours très différents. Quand je lui ai demandé comment trouver un stage là-bas, sa réponse a été simple : le réseau. Il m'a quand même rassuré en me disant que n'importe quel stage vaut le coup au début, parce qu'on ne connaît pas encore le monde du travail. Et sur l'IA, j'ai été surpris de voir à quel point elle a déjà changé sa façon de travailler, que ce soit pour le code, le suivi des commerciaux ou les prévisions financières.</dd>
+        <dd lang="en">I asked him what was really different in London. According to him, the French bank had better products, but at Morgan Stanley, clients trusted them and wanted to keep working with them, even when a product did not suit them. He also described a much more direct environment, and teams full of people with very different backgrounds. When I asked him how to find an internship there, his answer was simple: your network. He did reassure me, though, saying that any internship is worth it at first, because you don't know the world of work yet. And on AI, I was surprised to see how much it has already changed the way he works, whether for code, following up on sales or financial forecasting.</dd>
+        <dt lang="fr">Pour moi</dt><dt lang="en">For me</dt>
+        <dd lang="fr">Je n'avais jamais vraiment pensé que la confiance d'un client pouvait peser plus que le produit. Ça me parle, vu que je m'occupe de la partie commerciale de Tago. Et ça m'a convaincu de commencer à construire mon réseau dès maintenant, sans attendre d'avoir un stage en vue.</dd>
+        <dd lang="en">I had never really thought that a client's trust could matter more than the product. It speaks to me, since I handle the business side of Tago. And it convinced me to start building my network now, without waiting until I am looking for an internship.</dd>
+        <dt lang="fr">Lien avec ma mobilité</dt><dt lang="en">Link to my mobility</dt>
+        <dd lang="fr">C'est surtout son expérience qui me donne envie de faire ma mobilité à Londres.</dd>
+        <dd lang="en">It is mainly his experience that makes me want to do my mobility in London.</dd>
+      </dl>
+    </article>
   </div>
 
   <div data-subpanel="video" class="measure">
     <p lang="fr">Ma proposition de valeur en deux minutes, en anglais.</p>
     <p lang="en">My value proposition in two minutes, in English.</p>
-    <div class="todo" lang="fr">Vidéo à venir.</div>
-    <div class="todo" lang="en">Video coming soon.</div>
+    <div class="video"><iframe src="https://www.youtube-nocookie.com/embed/Q91tUcNLdV4" title="Paul Barthe, elevator pitch" loading="lazy" allow="accelerometer; encrypted-media; gyroscope; picture-in-picture; fullscreen" allowfullscreen></iframe></div>
+    <p style="margin-top:.8rem"><a href="https://youtu.be/Q91tUcNLdV4" target="_blank" rel="noopener"><span lang="fr">Ouvrir la vidéo sur YouTube</span><span lang="en">Open the video on YouTube</span></a></p>
   </div>
 </section>
 
@@ -541,7 +671,7 @@ footer .wrap{display:flex;flex-wrap:wrap;justify-content:space-between;gap:1rem}
 <script>
 /* ===== À modifier ici ===== */
 const EMAIL = "barthe.paul.pro@gmail.com";
-const LINKEDIN = "#"; // coller l'URL de ton profil LinkedIn
+const LINKEDIN = "https://www.linkedin.com/in/paul-barthe-0b5b7a439";
 
 document.querySelectorAll(".js-mail").forEach(a => a.href = "mailto:" + EMAIL);
 document.querySelectorAll(".js-linkedin").forEach(a => a.href = LINKEDIN);
